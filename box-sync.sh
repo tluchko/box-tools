@@ -10,8 +10,7 @@ function usage {
 usage: `basename $0` SOURCE TARGET
 
 Copy SOURCE files to TARGET where TARGET is on the Box.com.  If TARGET
-does not exist, it is created.  lftp is used to non-recusively copy a
-list of files. Time of execution is always reported.
+does not exist, it is created.  lftp is used to syncronize the source files to the target on Box.com.  I.e., only new or changed files are copied.  Time of execution is always reported.
 EOF
     exit 1
 }
