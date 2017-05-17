@@ -15,15 +15,17 @@ Makes using multivolume tar files slightly easier.
 
 * Automatically applies a script to provide the next file in the
   archive.
-* Allows human readable values for volume size. (Not working yet.)
 * All other options passed through.
 
 The subscript that names all of the volumes after the first appends
 the volume number to the end, '-#'.
 
--L : Size of volumes in human readable format.  E.g., 1 (1 kb), 1K (1
-     kb), 1M (1 MB), 1G (1 GB)
 EOF
+
+    #* Allows human readable values for volume size. (Not working yet.)
+    #-L : Size of volumes in human readable format.  E.g., 1 (1 kb),
+    #-1K (1 kb), 1M (1 MB), 1G (1 GB)
+
     exit 1
 }
 
@@ -67,8 +69,8 @@ function add_new_volume_script {
 }
 
 checkargs $@
-command=`add_new_volume_script $@`
+command="tar `add_new_volume_script $@`"
 
 echo "$command"
-eval "tar $command"
+eval "$command"
 
